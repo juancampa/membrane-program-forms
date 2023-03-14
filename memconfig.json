@@ -1,0 +1,172 @@
+{
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "actions": [
+          {
+            "name": "create",
+            "type": "Ref",
+            "ofType": "Form",
+            "params": [
+              {
+                "name": "title",
+                "type": "String"
+              },
+              {
+                "name": "canResubmit",
+                "type": "Boolean"
+              }
+            ]
+          },
+          {
+            "name": "endpoint",
+            "description": "",
+            "type": "String",
+            "params": [
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "body",
+                "type": "String"
+              },
+              {
+                "name": "path",
+                "type": "String"
+              },
+              {
+                "name": "query",
+                "type": "String"
+              },
+              {
+                "name": "headers",
+                "type": "String"
+              }
+            ],
+            "hints": {
+              "hidden": true
+            }
+          }
+        ],
+        "fields": [
+          {
+            "name": "form",
+            "type": "Form",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Form",
+        "actions": [
+          {
+            "name": "string",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "pattern",
+                "description": "Regex pattern to validate the input",
+                "type": "String"
+              },
+              {
+                "name": "multiline",
+                "type": "Boolean"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              }
+            ]
+          },
+          {
+            "name": "date",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "min",
+                "description": "Minimum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "max",
+                "description": "Maximum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "url",
+            "type": "String"
+          },
+          {
+            "name": "result",
+            "type": "String"
+          }
+        ],
+        "events": [
+          {
+            "name": "submitted",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "Ui",
+        "fields": [
+          {
+            "name": "html",
+            "type": "String"
+          },
+          {
+            "name": "with",
+            "type": "String",
+            "params": [
+              {
+                "name": "ui",
+                "type": "Ref",
+                "ofType": "Ui"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
