@@ -116,30 +116,72 @@ export const Form = {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "date", ...args });
   },
+  time({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "time", ...args });
+  },
+  datetime({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "datetime", ...args });
+  },
+  number({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "number", ...args });
+  },
+  range({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "range", ...args });
+  },
+  email({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "email", ...args });
+  },
+  password({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "password", ...args });
+  },
+  checkbox({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "checkbox", ...args });
+  },
+  select({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "select", ...args });
+  },
+  radio({ self, args }) {
+    const form = state.forms[self.$argsAt(root.form).id];
+    form.inputs.push({ type: "radio", ...args });
+  },
   result: ({ obj }) => {
     return JSON.stringify(state.forms[obj.id].result);
   },
 };
 
-interface TextInput {
-  type: "string";
+interface InputParams {
+  type:
+    | "string"
+    | "time"
+    | "datetime"
+    | "number"
+    | "range"
+    | "email"
+    | "password"
+    | "checkbox"
+    | "select"
+    | "date"
+    | "radio";
   key: string;
   label: string;
-  pattern: string;
-  multiline: boolean;
-  required: boolean;
+  required?: boolean;
+  multiline?: boolean;
+  min?: string;
+  max?: string;
+  step?: number;
+  pattern?: string;
+  options?: string;
 }
 
-interface DateInput {
-  type: "date";
-  key: string;
-  label: string;
-  min: string;
-  max: string;
-  required: boolean;
-}
-
-type Input = DateInput | TextInput;
+type Input = InputParams;
 
 interface U extends Ui {}
 
@@ -162,12 +204,80 @@ function rowFor(i: Input) {
       tag = `<input type="date" name="${i.key}" ${min} ${max} ${required} />`;
       break;
     }
+    case "time": {
+      const min = i.min ? `min="${i.min}"` : "";
+      const max = i.max ? `max="${i.max}"` : "";
+      const step = i.step ? `step="${i.step}"` : "";
+      tag = `<input type="time" name="${i.key}" ${min} ${max} ${step} ${required} />`;
+      break;
+    }
+    case "datetime": {
+      const min = i.min ? `min="${i.min}"` : "";
+      const max = i.max ? `max="${i.max}"` : "";
+      tag = `<input type="datetime-local" name="${i.key}" ${min} ${max} ${required} />`;
+      break;
+    }
+    case "range": {
+      const min = i.min ? `min="${i.min}"` : "";
+      const max = i.max ? `max="${i.max}"` : "";
+      const step = i.step ? `step="${i.step}"` : "";
+      tag = `<input type="range" name="${i.key}" ${min} ${max} ${step} ${required} />`;
+      break;
+    }
+    case "email": {
+      const pattern = i.pattern ? `pattern="${i.pattern}"` : "";
+      tag = `<input type="email" name="${i.key}" ${pattern} ${required} />`;
+      break;
+    }
+    case "checkbox": {
+      tag = `<input type="checkbox" name="${i.key}" ${required} />`;
+      break;
+    }
+    case "number": {
+      const min = i.min ? `min="${i.min}"` : "";
+      const max = i.max ? `max="${i.max}"` : "";
+      const step = i.step ? `step="${i.step}"` : "";
+      tag = `<input type="number" name="${i.key}" ${min} ${max} ${step} ${required} />`;
+      break;
+    }
+    case "password": {
+      const pattern = i.pattern ? `pattern="${i.pattern}"` : "";
+      tag = `<input type="password" name="${i.key}" ${pattern} ${required} />`;
+      break;
+    }
+    case "select": {
+      const options = JSON.parse(i.options) || [];
+      tag = `
+        <select name="${i.key}" ${required}>
+          ${options
+            .map(
+              (option) => `
+            <option value="${option.value}">${option.label}</option>
+          `
+            )
+            .join("")}
+        </select>
+      `;
+      break;
+    }
+    case "radio": {
+      const options = JSON.parse(i.options) || [];
+      tag = options
+        .map(
+          (option) => `
+        <label>
+          <input type="radio" name="${i.key}" value="${option.value}" ${required} />
+          ${option.label}
+        </label>
+      `
+        )
+        .join("");
+      break;
+    }
   }
   // Full row for textarea
   if (i.type === "string" && i.multiline) {
-    return `<tr><td colspan="2">${labelFor(
-      i
-    )}</td></tr><tr><td colspan="2">${tag}</td></tr>`;
+    return `<tr><td colspan="2">${labelFor(i)}</td></tr><tr><td colspan="2">${tag}</td></tr>`;
   }
   return `<tr><td>${labelFor(i)}</td><td>${tag}</td></tr>`;
 }
