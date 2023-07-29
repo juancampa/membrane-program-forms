@@ -124,6 +124,250 @@
                 "type": "Boolean"
               }
             ]
+          },
+          {
+            "name": "time",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "min",
+                "description": "Minimum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "max",
+                "description": "Maximum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "step",
+                "type": "Float"
+              }
+            ]
+          },
+          {
+            "name": "datetime",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "min",
+                "description": "Minimum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "max",
+                "description": "Maximum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              }
+            ]
+          },
+          {
+            "name": "number",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "min",
+                "description": "Minimum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "max",
+                "description": "Maximum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "step",
+                "type": "Float"
+              }
+            ]
+          },
+          {
+            "name": "range",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "min",
+                "description": "Minimum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "max",
+                "description": "Maximum date in YYYY-MM-DD format",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "step",
+                "type": "Float"
+              }
+            ]
+          },
+          {
+            "name": "email",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "pattern",
+                "type": "Stringt"
+              }
+            ]
+          },
+          {
+            "name": "password",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "pattern",
+                "type": "Stringt"
+              }
+            ]
+          },
+          {
+            "name": "checkbox",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "description": "Key to store the value",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "description": "Label to display for the input",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              }
+            ]
+          },
+          {
+            "name": "select",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "options",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "radio",
+            "type": "Void",
+            "params": [
+              {
+                "name": "key",
+                "type": "String"
+              },
+              {
+                "name": "label",
+                "type": "String"
+              },
+              {
+                "name": "required",
+                "type": "Boolean"
+              },
+              {
+                "name": "options",
+                "type": "String"
+              }
+            ]
           }
         ],
         "fields": [
