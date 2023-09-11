@@ -30,7 +30,8 @@
               },
               {
                 "name": "body",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "path",
@@ -38,7 +39,8 @@
               },
               {
                 "name": "query",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "headers",
@@ -83,15 +85,18 @@
               {
                 "name": "pattern",
                 "description": "Regex pattern to validate the input",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "multiline",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               }
             ]
           },
@@ -112,16 +117,19 @@
               {
                 "name": "min",
                 "description": "Minimum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "max",
                 "description": "Maximum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               }
             ]
           },
@@ -142,20 +150,24 @@
               {
                 "name": "min",
                 "description": "Minimum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "max",
                 "description": "Maximum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "step",
-                "type": "Float"
+                "type": "Float",
+                "optional": true
               }
             ]
           },
@@ -176,16 +188,19 @@
               {
                 "name": "min",
                 "description": "Minimum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "max",
                 "description": "Maximum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               }
             ]
           },
@@ -206,20 +221,24 @@
               {
                 "name": "min",
                 "description": "Minimum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "max",
                 "description": "Maximum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "step",
-                "type": "Float"
+                "type": "Float",
+                "optional": true
               }
             ]
           },
@@ -240,20 +259,24 @@
               {
                 "name": "min",
                 "description": "Minimum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "max",
                 "description": "Maximum date in YYYY-MM-DD format",
-                "type": "String"
+                "type": "String",
+                "optional": true
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "step",
-                "type": "Float"
+                "type": "Float",
+                "optional": true
               }
             ]
           },
@@ -273,11 +296,13 @@
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "pattern",
-                "type": "Stringt"
+                "type": "String",
+                "optional": true
               }
             ]
           },
@@ -297,11 +322,13 @@
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "pattern",
-                "type": "Stringt"
+                "type": "String",
+                "optional": true
               }
             ]
           },
@@ -321,7 +348,8 @@
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               }
             ]
           },
@@ -339,11 +367,13 @@
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "options",
-                "type": "String"
+                "type": "String",
+                "optional": false
               }
             ]
           },
@@ -361,7 +391,8 @@
               },
               {
                 "name": "required",
-                "type": "Boolean"
+                "type": "Boolean",
+                "optional": true
               },
               {
                 "name": "options",

@@ -15,7 +15,7 @@ function randomStr(length) {
 }
 
 export const Root = {
-  create({ args: { title, canResubmit } }) {
+  create({ title, canResubmit }) {
     const id = randomStr(10);
     let resolve: null | ((value: unknown) => void) = null;
     let reject: null | ((reason?: any) => void) = null;
@@ -34,10 +34,10 @@ export const Root = {
     };
     return root.form({ id });
   },
-  form: ({ args: { id } }) => {
+  form: ({ id }) => {
     return { id };
   },
-  endpoint: ({ args: { path, method, query, body } }) => {
+  endpoint: ({ path, method, query, body }) => {
     const [, id] = path.split("/");
     if (method === "POST") {
       const form = state.forms[id];
@@ -105,54 +105,54 @@ function html(body: string) {
 }
 
 export const Form = {
-  url: async ({ obj, self }) => {
+  url: async (_, { obj, self }) => {
     return (await nodes.process.endpointUrl.$get()) + "/" + obj.id;
   },
-  string({ self, args }) {
+  string(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "string", ...args });
   },
-  date({ self, args }) {
+  date(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "date", ...args });
   },
-  time({ self, args }) {
+  time(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "time", ...args });
   },
-  datetime({ self, args }) {
+  datetime(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "datetime", ...args });
   },
-  number({ self, args }) {
+  number(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "number", ...args });
   },
-  range({ self, args }) {
+  range(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "range", ...args });
   },
-  email({ self, args }) {
+  email(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "email", ...args });
   },
-  password({ self, args }) {
+  password(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "password", ...args });
   },
-  checkbox({ self, args }) {
+  checkbox(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "checkbox", ...args });
   },
-  select({ self, args }) {
+  select(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "select", ...args });
   },
-  radio({ self, args }) {
+  radio(args, { self }) {
     const form = state.forms[self.$argsAt(root.form).id];
     form.inputs.push({ type: "radio", ...args });
   },
-  result: ({ obj }) => {
+  result: (_, { obj }) => {
     return JSON.stringify(state.forms[obj.id].result);
   },
 };
@@ -277,7 +277,9 @@ function rowFor(i: Input) {
   }
   // Full row for textarea
   if (i.type === "string" && i.multiline) {
-    return `<tr><td colspan="2">${labelFor(i)}</td></tr><tr><td colspan="2">${tag}</td></tr>`;
+    return `<tr><td colspan="2">${labelFor(
+      i
+    )}</td></tr><tr><td colspan="2">${tag}</td></tr>`;
   }
   return `<tr><td>${labelFor(i)}</td><td>${tag}</td></tr>`;
 }
